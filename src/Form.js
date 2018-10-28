@@ -2,7 +2,7 @@ import React from 'react'
 
 class Form extends React.Component {
 
-    state = {entry: ''}
+state = {entry: '', list: []}
 
 handleChange = (e) => {
 this.setState({entry: e.target.value})
@@ -13,12 +13,17 @@ handleSubmit = (e) => {
     e.preventDefault()
     const { entry } = this.state
     console.log(entry)
+    this.addItem()
+    console.log(this.state.list)
     this.setState({entry: ''})
 }
 
+addItem = () => {
+    const { entry, list } = this.state
+    this.setState({list: [...list, entry]})
+}
 
-
-    render () {
+render () {
  const { entry } = this.state
         return(
 
