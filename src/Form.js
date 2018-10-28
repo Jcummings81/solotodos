@@ -11,31 +11,31 @@ console.log(this.state.entry)
 
 handleSubmit = (e) => {
     e.preventDefault()
-    const { entry } = this.state
+    const { entry, list } = this.state
     console.log(entry)
-    this.addItem()
+    this.setState({ list: [entry, ...list]})
     console.log(this.state.list)
     this.setState({entry: ''})
 }
 
-addItem = () => {
-    const { entry, list } = this.state
-    this.setState({list: [...list, entry]})
-}
+
 
 render () {
- const { entry } = this.state
+ const { entry, list } = this.state
         return(
-
+            <>
             <form onSubmit={this.handleSubmit}>
                 <input 
-                id="myinput"
-                name="entry"
+                name="name"
                 value={entry}
                 onChange={this.handleChange}
                 >
                 </input> 
             </form>
+            <ul>
+            { list.map( (entry, i) => <li key={i}>{entry}</li> ) }
+          </ul>
+          </>
         )
     }
 }
