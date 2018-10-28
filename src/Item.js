@@ -1,9 +1,14 @@
 import React from 'react';
 
-class List extends React.Component {
+class Item extends React.Component {
 
-    state = {list: []}
+    state = { list: [], item: ''}
 
+
+  addItem = () => {
+    const {list} = this.state
+
+  }
   render() {
     return (
             null
@@ -11,4 +16,4 @@ class List extends React.Component {
   }
 }
 
-export default List;
+export default Item;
