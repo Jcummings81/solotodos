@@ -19,7 +19,6 @@ handleSubmit = (e) => {
 }
 
 
-
 render () {
  const { entry, list } = this.state
         return(
